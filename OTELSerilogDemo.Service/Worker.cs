@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using OTELSerilogDemo.Common;
 
 namespace OTELSerilogDemo.Service;
 
@@ -22,12 +23,12 @@ public class Worker : BackgroundService
             using var activity = _activitySource.StartActivity();
 
             var context = $"Context {++contextCounter}";
-            _logger.LogInformation("Begin work {Context}", context);
+            _logger.LogInformationWithCallerInfo("Begin work {Context}", context);
 
             activity?.SetTag("context", context);
 
             await DoWorkAsync(context, stoppingToken);
-            _logger.LogInformation("End work {Context}", context);
+            _logger.LogInformationWithCallerInfo("End work {Context}", context);
 
             await Task.Delay(2000, stoppingToken);
         }
@@ -42,9 +43,9 @@ public class Worker : BackgroundService
         for (var i = 1; i <= 5; i++)
         {
             var newContext = $"{context}.{i}";
-            _logger.LogInformation("Start doing work {Context}", newContext);
+            _logger.LogInformationWithCallerInfo("Start doing work {Context}", newContext);
             await DoSubWorkAsync(newContext, cancellationToken);
-            _logger.LogInformation("Finished doing work {Context}", newContext);
+            _logger.LogInformationWithCallerInfo("Finished doing work {Context}", newContext);
         }
     }
 
@@ -54,8 +55,8 @@ public class Worker : BackgroundService
         using var activity = _activitySource.StartActivity();
         activity?.SetTag("context", context);
 
-        _logger.LogInformation("Start doing sub work {Context}", context);
+        _logger.LogInformationWithCallerInfo("Start doing sub work {Context}", context);
         await Task.Delay(200, cancellationToken);
-        _logger.LogInformation("Finished doing sub work {Context}", context);
+        _logger.LogInformationWithCallerInfo("Finished doing sub work {Context}", context);
     }
 }
