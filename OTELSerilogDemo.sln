@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTELSerilogDemo.Service", "OTELSerilogDemo.Service\OTELSerilogDemo.Service.csproj", "{ED099D7A-9932-448F-9C5E-F4D93889A6D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTELSerilogDemo.Common", "OTELSerilogDemo.Common\OTELSerilogDemo.Common.csproj", "{346D5366-1F93-40C6-A940-35540582F66C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED099D7A-9932-448F-9C5E-F4D93889A6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED099D7A-9932-448F-9C5E-F4D93889A6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED099D7A-9932-448F-9C5E-F4D93889A6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED099D7A-9932-448F-9C5E-F4D93889A6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{346D5366-1F93-40C6-A940-35540582F66C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346D5366-1F93-40C6-A940-35540582F66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346D5366-1F93-40C6-A940-35540582F66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346D5366-1F93-40C6-A940-35540582F66C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
