@@ -2,6 +2,7 @@
 using Serilog;
 using Serilog.Enrichers.OpenTelemetry;
 using Serilog.Sinks.OpenTelemetry;
+using SerilogTracing;
 
 namespace OTELSerilogDemo.Common;
 
@@ -15,6 +16,10 @@ public static class SerilogLoggingConfigurationExtensions
 
     public static LoggerConfiguration ConfigureDefaultLogging(this LoggerConfiguration loggerConfiguration)
     {
+        // TODO return value seems to be disposable, how and when dispose this?
+        _ = new ActivityListenerConfiguration()
+            .TraceToSharedLogger();
+
         return loggerConfiguration
             .Enrich.WithProperty("process.executable.name", ApplicationName)
             .Enrich.WithOpenTelemetryTraceId()
